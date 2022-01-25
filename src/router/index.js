@@ -8,20 +8,48 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Pomodoro'
+      // keepAlive: true
+    }
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/analyze',
+    name: 'Analyze',
+    component: () => import(/* webpackChunkName: "analyze" */ '../views/Analyze.vue'),
+    meta: {
+      title: 'Pomodoro | Analyze'
+    }
+  },
+  {
+    path: '/sound',
+    name: 'Sound',
+    component: () => import(/* webpackChunkName: "sound" */ '../views/Sound.vue'),
+    meta: {
+      title: 'Pomodoro | Sound'
+    }
+  },
+  {
+    path: '/404',
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "notfound" */ '../views/NotFound.vue'),
+    meta: {
+      title: 'Pomodoro | 404'
+    }
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 
 const router = new VueRouter({
   routes
+})
+
+router.afterEach((to) => {
+  document.title = to.meta.title
 })
 
 export default router
