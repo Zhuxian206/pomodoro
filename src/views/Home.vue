@@ -22,7 +22,7 @@
   border:none;
 }
 
-#list .table td:nth-child(2){
+#list .table td:nth-child(1){
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -35,11 +35,8 @@ height: 25px;
 border-radius: 5px;
 border:1px solid #979797
 }
-#list .table td:nth-child(1) {
-flex-grow: 0;
-}
 
-#list .table td:nth-child(3) {
+#list .table td:nth-child(2) {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -125,7 +122,6 @@ export default {
     return {
       newinput: '',
       fields: [
-        { key: 'check', label: '' },
         { key: 'name', label: '' },
         { key: 'action', label: '' }
       ]

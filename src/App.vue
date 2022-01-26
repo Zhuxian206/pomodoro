@@ -239,6 +239,13 @@ export default {
         this.start()
       }
     }
+  },
+  watch: {
+    chartData () {
+      this.$data._chart.destroy()
+      this.renderChart(this.chartData, this.options)
+    },
+    deep: true
   }
 }
 </script>
